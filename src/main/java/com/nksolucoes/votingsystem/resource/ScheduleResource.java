@@ -20,8 +20,8 @@ public class ScheduleResource {
     private final ScheduleService scheduleService;
 
     @PostMapping("/create")
-    public ScheduleDTO createSchedule(@Valid @RequestBody ScheduleDTO scheduleDTO) {
-        return  scheduleService.createSchedule(scheduleDTO);
+    public ResponseEntity<?>  createSchedule(@Valid @RequestBody ScheduleDTO scheduleDTO) {
+        return  ResponseEntity.ok(scheduleService.createSchedule(scheduleDTO));
     }
 
 }
