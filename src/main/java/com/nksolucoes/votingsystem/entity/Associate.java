@@ -1,6 +1,5 @@
 package com.nksolucoes.votingsystem.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,16 +15,22 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tab_schedule")
-public class Schedule implements Serializable {@Serial
+@Table(name = "tab_associate")
+public class Associate implements Serializable {
+    @Serial
     private static final long serialVersionUID = 1L;
-
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column(name = "cod_schedule")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "cod_associate", nullable = false)
     private Long id;
-    @Column(name = "nam_schedule")
+
+    @Column(name = "nam_associate", nullable = false)
     private String name;
-    @Column(name = "des_schedule")
-    private String description;
+
+    @OneToMany
+    private List<Vote> votes;
 }
+
+
+
+

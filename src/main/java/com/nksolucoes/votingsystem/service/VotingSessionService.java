@@ -13,9 +13,10 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
-import java.util.concurrent.*;
-
-import static com.nksolucoes.votingsystem.enums.MessagesEnum.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -95,7 +96,7 @@ public class VotingSessionService {
                                                                              + ", Session Name: " + votingSession.getName()
                                                                              + ", Schedule : [  Id: " + votingSession.getSchedule().getId()
                                                                              + ", Name: " + votingSession.getSchedule().getName() + " ] } ");
-            return CLOSED_VOTING_SESSION.getMessageEnum();
+            return MessagesEnum.CLOSED_VOTING_SESSION.getMessageEnum();
         });
     }
 

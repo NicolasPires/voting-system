@@ -22,7 +22,7 @@ public class VotingSession implements Serializable {@Serial
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cod_voting_session")
     private Long id;
-    @Column(name = "nom_voting_session")
+    @Column(name = "nam_voting_session")
     private String name;
     @Column(name = "dta_creation")
     private LocalDateTime createDate;
